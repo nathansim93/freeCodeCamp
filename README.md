@@ -1,2 +1,3 @@
-# freeCodeCamp
-Projects from freeCodeCamp I've completed for future reference
+# projects
+Projects I've completed from freeCodeCamp, coursrea, OdinPorject, and other programs. 
+Pinned for future reference
