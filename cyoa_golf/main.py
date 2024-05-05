@@ -14,7 +14,7 @@ class CYOAGame:
             "9 iron": random.randint(120, 150),
             "pitching wedge": random.randint(110, 140),
             "sand wedge": random.randint(80, 110),
-            "putter": random.randint(1, 10)  # Dynamic adjustment for putter based on distance
+            "putter": random.randint(1, 10)  
         }
         self.clubs_yardage["driver"] = 0  # Will be set when choosing a tee
 
@@ -43,7 +43,7 @@ class CYOAGame:
     def get_available_clubs(self, first_shot=False):
         available_clubs = ["driver"] if first_shot else []
         for club, yardage in self.clubs_yardage.items():
-            if club != "driver" and yardage <= self.distance_remaining + 20:  # Allow for club choice with a buffer
+            if club != "driver" and yardage <= self.distance_remaining + 20: 
                 available_clubs.append(club)
         if self.distance_remaining <= 10:  # Putter only if within 10 yards
             available_clubs.append("putter")
@@ -73,14 +73,14 @@ class CYOAGame:
                 self.putt()
 
         print(f"The golfer completes hole {self.current_hole} with a par.")
-        self.score += 4  # Assuming par is always 4 for simplicity
+        self.score += 4  # Putting Par as 4 for now until I can perfect par 4 holes.
         self.current_hole += 1
         if self.current_hole <= 18:
             self.set_next_hole_distance()
 
     def putt(self):
         while self.distance_remaining > 0:
-            self.clubs_yardage["putter"] = random.randint(1, max(2, self.distance_remaining))  # Ensure some advancement
+            self.clubs_yardage["putter"] = random.randint(1, max(2, self.distance_remaining))  
             putt_distance = self.clubs_yardage["putter"]
             self.distance_remaining -= putt_distance
             print(f"Putt goes {putt_distance} yards, {self.distance_remaining} yards to the hole.")
